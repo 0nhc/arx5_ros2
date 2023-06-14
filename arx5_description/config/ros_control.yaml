@@ -1,0 +1,33 @@
+controller_manager:
+  ros__parameters:
+    use_sim_time: True
+    update_rate: 250  # Hz
+    joint_states_controller:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    joint_group_effort_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+joint_group_effort_controller:
+  ros__parameters:
+    use_sim_time: True
+    type: joint_trajectory_controller/JointTrajectoryController
+    joints:
+      - base_link_to_link1
+      - link1_to_link2
+      - link2_to_link3
+      - link3_to_link4
+      - link4_to_link5
+      - link5_to_gripper_link1
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+      
+    gains:
+      base_link_to_link1 : {p: 100.0, i: 0.0, d: 0.1}
+      link1_to_link2 : {p: 100.0, i: 0.0, d: 0.1}
+      link2_to_link3 : {p: 100.0, i: 0.0, d: 0.1}
+      link3_to_link4 : {p: 100.0, i: 0.0, d: 0.1}
+      link4_to_link5 : {p: 100.0, i: 0.0, d: 0.1}
+      link5_to_gripper_link1 : {p: 100.0, i: 0.0, d: 0.1}
