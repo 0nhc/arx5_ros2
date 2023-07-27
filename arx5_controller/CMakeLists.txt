@@ -16,6 +16,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(orocos_kdl REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(kdl_parser REQUIRED)
 
 include_directories(
   thirdparty/arx5_sdk/include
@@ -30,7 +31,7 @@ target_include_directories(controller PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 target_link_libraries(controller orocos-kdl Eigen3::Eigen ${arx5_sdk_LIB})
-ament_target_dependencies(controller rclcpp sensor_msgs)
+ament_target_dependencies(controller rclcpp sensor_msgs kdl_parser)
 
 install(TARGETS controller
   DESTINATION lib/${PROJECT_NAME}

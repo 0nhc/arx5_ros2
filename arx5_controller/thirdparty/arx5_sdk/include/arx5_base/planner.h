@@ -21,7 +21,7 @@ private:
   // 插值依据的机械臂运行速度（暂时设置为角速度与线速度一致）
   double velocity = 0.1;
   // 插值的精度（每个点之间的时间差）
-  double dt = 0.001;
+  double dt = 0.01;
 };
 
 #endif
